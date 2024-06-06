@@ -187,7 +187,18 @@ spec:
           - name: echo-hello
             image: busybox
             script: |
-              echo "hello"
+              echo "hello" > $(results.hello.path)
+        results:
+          - name: hello
+
+    - name: display-result
+      taskSpec:
+        steps:
+          - name: display-hello
+            image: busybox
+            script: |
+              echo $(tasks.echo-test.results.hello)
+
 
 
 
