@@ -180,6 +180,17 @@ spec:
         workspace: workspace
       - name: basic-auth
         workspace: git-auth
+
+    - name: echo-test
+      taskSpec:
+        steps:
+          - name: echo-hello
+            image: busybox
+            script: |
+              echo "hello"
+
+
+
     - name: prefetch-dependencies
       params:
       - name: input
